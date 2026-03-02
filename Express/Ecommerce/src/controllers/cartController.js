@@ -1,11 +1,34 @@
+const { sendResponse, sendErrResponse } = require("../utils/response");
+
 const getCartForUser = (req, res) => {
-  const userId = req.params.userId;
-  res.send(`Fetching cart for user with ID: ${userId}`);
+  try {
+    const userId = req.params.userId;
+    if (!userId) {
+      const err = new Error("User ID is required");
+      err.statusCode = 400;
+      throw err;
+    }
+    return sendResponse(res, `Fetching cart for user with ID: ${userId}`);
+  } catch (error) {
+    return sendErrResponse(res, error);
+  }
 };
 
 const addProductToCart = (req, res) => {
-  const userId = req.params.userId;
-  res.send(`Adding product to cart for user with ID:  ${userId}`);
+  try {
+    const userId = req.params.userId;
+    if (!userId) {
+      const err = new Error("User ID is reuired");
+      err.statusCode = 400;
+      throw err;
+    }
+    return sendResponse(
+      res,
+      `Adding product to cart for user with ID: ${userId}`,
+    );
+  } catch (error) {
+    return sendErrResponse(res, error);
+  }
 };
 
 module.exports = {
