@@ -1,8 +1,9 @@
-const onSubmitHandler = (e) => {
-  e.preventDefault();
+const onSubmitHandler = (event) => {
+  event.preventDefault();
   console.log("Submit functiion called");
 
-  const product = e.target.productName.value;
+  const product = event.target.productName.value;
+  // console.log(product);
 
   const obj = {
     productName: product,
