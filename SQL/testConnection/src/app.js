@@ -1,12 +1,16 @@
 const express = require("express");
 const db = require("./utils/db-connection");
+const studentRoutes = require("./routes/studentRoutes");
+
 const app = express();
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.send("<h1>Welcome to Students Portal</h1>");
 });
 
-app.listen(3000, () => {
+app.use("/students", studentRoutes);
+
+app.listen(3000, (err) => {
   console.log("Server is running on port:3000");
 });
