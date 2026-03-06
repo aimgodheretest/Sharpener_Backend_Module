@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Appointment Booking App</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Appointment Booking</h1>
+
+      <form id="form" class="booking-form">
+        <input type="text" id="name" placeholder="Enter Name" required />
+
+        <input type="email" id="email" placeholder="Enter Email" required />
+
+        <input type="text" id="phone" placeholder="Enter Phone" required />
+
+        <button type="submit">Book Appointment</button>
+      </form>
+
+      <h2>Appointments</h2>
+
+      <ul id="users" class="user-list"></ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
