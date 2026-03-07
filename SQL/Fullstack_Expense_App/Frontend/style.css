@@ -1,0 +1,147 @@
+/* Dark Theme Background */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 40px;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: #f1f1f1;
+    min-height: 100vh;
+}
+
+/* Headings */
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Form Container */
+
+.form-container {
+    background: #1f2933;
+    padding: 25px;
+    width: 350px;
+    margin: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Inputs */
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: none;
+    background: #2d3748;
+    color: white;
+}
+
+input::placeholder {
+    color: #a0aec0;
+}
+
+/* Add Button */
+
+button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    background: linear-gradient(45deg, #ff7a18, #ffb347);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Expense List */
+
+#expenseList {
+    width: 700px;
+    margin: auto;
+    margin-top: 25px;
+    padding: 0;
+}
+
+/* Expense Card */
+
+#expenseList li {
+    list-style: none;
+    background: #1f2933;
+    margin-bottom: 12px;
+    padding: 15px 20px;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Expense Info */
+
+.expense-info {
+    display: flex;
+    gap: 25px;
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Prevent long description from breaking layout */
+
+.expense-info span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Button Container */
+
+.expense-buttons {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* Edit Button */
+
+.edit-btn {
+    background: #38a169;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Delete Button */
+
+.delete-btn {
+    background: #e53e3e;
+    padding: 6px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background: #2f855a;
+}
+
+.delete-btn:hover {
+    background: #c53030;
+}
