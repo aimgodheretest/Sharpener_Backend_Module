@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: linear-gradient(145deg, #1c1c1c, #2b2b2b);
+    padding: 40px;
+    color: #e0e0e0;
+}
+
+/* MAIN LAYOUT */
+
+.container {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* FORM SECTION */
+
+.form-section {
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* LABEL */
+
+label {
+    margin-top: 12px;
+    font-weight: 600;
+    color: #ccc;
+}
+
+/* INPUT */
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    margin-top: 5px;
+    font-size: 14px;
+    background: #2b2b2b;
+    color: #f1f1f1;
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 4px rgba(76, 175, 80, 0.4);
+}
+
+/* BUTTON */
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #2e7d32;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+button:hover {
+    background: #1b5e20;
+}
+
+hr {
+    margin: 30px 0;
+    border: 1px solid #444;
+}
+
+/* RESULT SECTION */
+
+.result-section {
+    width: 500px;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+/* PLAYER CARD */
+
+.player-card {
+    width: 420px;
+    background: #2a2a2a;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border: 1px solid #3a3a3a;
+}
+
+.player-card img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 15px 0;
+}
+
+.player-card p {
+    margin: 6px 0;
+}
+
+.player-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.player-dob {
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.player-card h3 {
+    margin-top: 15px;
+}
+
+.delete-btn {
+    margin-top: 15px;
+    background: #d32f2f;
+    padding: 10px 20px;
+    width: auto;
+}
+
+.delete-btn:hover {
+    background: #b71c1c;
+}

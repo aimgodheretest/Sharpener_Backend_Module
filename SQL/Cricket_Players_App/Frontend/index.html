@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Cricket Player</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- LEFT SIDE : FORM -->
+      <div class="form-section">
+        <h2>Player Information</h2>
+
+        <label>Name:</label>
+        <input type="text" id="name" placeholder="Name" />
+
+        <label>Date of Birth:</label>
+        <input type="date" id="dob" />
+
+        <label>Photo URL:</label>
+        <input type="url" id="photoUrl" placeholder="Photo URL" />
+
+        <label>Birthplace:</label>
+        <input type="text" id="birthplace" placeholder="Birthplace" />
+
+        <label>Career:</label>
+        <textarea id="career" placeholder="Career"></textarea>
+
+        <label>Matches:</label>
+        <input type="number" id="matches" placeholder="Matches" />
+
+        <label>Score:</label>
+        <input type="number" id="score" placeholder="Score" />
+
+        <label>Fifties:</label>
+        <input type="number" id="fifties" placeholder="Fifties" />
+
+        <label>Centuries:</label>
+        <input type="number" id="centuries" placeholder="Centuries" />
+
+        <label>Wickets:</label>
+        <input type="number" id="wickets" placeholder="Wickets" />
+
+        <label>Average:</label>
+        <input type="number" id="average" placeholder="Average" />
+
+        <button id="submitBtn" onclick="addPlayer()">Submit</button>
+
+        <hr />
+
+        <label>Search Player:</label>
+        <input id="searchName" placeholder="Enter Player Name" />
+
+        <button onclick="searchPlayer()">Search</button>
+      </div>
+
+      <!-- RIGHT SIDE : RESULT -->
+      <div class="result-section">
+        <div id="playerProfile"></div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
