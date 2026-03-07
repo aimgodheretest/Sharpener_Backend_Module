@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes, Model } = require("sequelize");
+const { DataTypes } = require("sequelize");
 const sequelize = require("../utils/db-connection");
 
 const Bookings = sequelize.define("Bookings", {
@@ -9,6 +9,15 @@ const Bookings = sequelize.define("Bookings", {
     allowNull: false,
   },
   seatNumber: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+  userId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+
+  busId: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },

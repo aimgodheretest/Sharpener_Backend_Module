@@ -3,7 +3,7 @@ const { addBuses, getAvailableBuses } = require("../controllers/busController");
 
 const router = express.Router();
 
-router.post("/", addBuses);
-router.get("/available/:seats", getAvailableBuses);
+router.post("/buses", addBuses);
+router.get("/buses/available/:seats", getAvailableBuses);
 
 module.exports = router;
