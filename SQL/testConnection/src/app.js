@@ -1,8 +1,8 @@
 const express = require("express");
 const db = require("./utils/db-connection");
 const studentRoutes = require("./routes/studentRoutes");
-//models
-const studentsModel = require("./models/studentsTable");
+
+const models = require("./models/association");
 
 const app = express();
 app.use(express.json());
@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 
 app.use("/students", studentRoutes);
 
-db.sync({ force: false })
+db.sync({ force: true })
   .then(() => {
     app.listen(3000, (err) => {
       console.log("Server is running on port:3000");

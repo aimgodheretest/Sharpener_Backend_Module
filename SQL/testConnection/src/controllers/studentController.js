@@ -1,11 +1,11 @@
 const db = require("../utils/db-connection");
-const Student = require("../models/studentsTable");
-
+const Students = require("../models/studentsTable");
+const IdentityCard = require("../models/identityCardTable");
 //adding student using sequelize
 const addEntries = async (req, res) => {
   try {
     const { name, email } = req.body;
-    const student = await Student.create({
+    const student = await Students.create({
       name: name,
       email: email,
     });
@@ -14,18 +14,20 @@ const addEntries = async (req, res) => {
   } catch (error) {
     res.status(500).send(`Unable to make entry`);
   }
+};
 
-  // const insertQuary = "INSERT INTO Students (name,email) VALUES (?,?)";
-  // db.execute(insertQuary, [name, email], (err) => {
-  //   if (err) {
-  //     console.log(err.message);
-  //     res.status(500).send(err.message);
-  //     db.end();
-  //     return;
-  //   }
-  //   console.log("Values Has Been Inserted!");
-  //   res.status(201).send(`Student with the name ${name} added to the DB.`);
-  // });
+const addvaluesToStudentsAndIdentityCardTable = async (req, res) => {
+  try {
+    const student = await Students.create(req.body.student);
+    const idCard = await IdentityCard.create({
+      ...req.body.IdentityCard,
+      StudentId: student.id,
+    });
+
+    res.status(201).json({ student, idCard });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
 
 const updateEntry = async (req, res) => {
@@ -33,7 +35,7 @@ const updateEntry = async (req, res) => {
     const { id } = req.params;
     const { name, email } = req.body;
 
-    const student = await Student.findByPk(id);
+    const student = await Students.findByPk(id);
     if (!student) {
       return res.status(404).send(`Student not found!`);
     }
@@ -46,31 +48,12 @@ const updateEntry = async (req, res) => {
   } catch (error) {
     return res.status(500).send(`Student cannot updated!`);
   }
-  // const updateQuary = "UPDATE Students set name= ?,email= ? WHERE id= ?";
-
-  // db.execute(updateQuary, [name, email, id], (err, result) => {
-  //   if (err) {
-  //     console.log(err.message);
-  //     res.status(500).send(err.message);
-  //     db.end();
-  //     return;
-  //   }
-  //   if (result.affectedRows === 0) {
-  //
-  // try {
-  // } catch (error) {}
-  // res.status(404).send("Student not found!");
-  //     return;
-  //   }
-  //   console.log("Values Has Been Updated...");
-  //   res.status(200).send(`User has been updated`);
-  // });
 };
 
 const deleteEntry = async (req, res) => {
   try {
     const { id } = req.params;
-    const student = await Student.destroy({
+    const student = await Students.destroy({
       where: {
         id: id,
       },
@@ -84,21 +67,10 @@ const deleteEntry = async (req, res) => {
     console.log(error);
     res.status(500).send(`Error while Deleting...`);
   }
-  // const deleteQuary = "DELETE FROM Students WHERE id= ?";
-
-  // db.execute(deleteQuary, [id], (err, result) => {
-  //   if (err) {
-  //     console.log(err.message);
-  //     res.status(500).send(err.message);
-  //     db.end();
-  //     return;
-  //   }
-  //   if (result.affectedRows === 0) {
-  //     res.status(404).send("Student not found!");
-  //     return;
-  //   }
-  //   console.log("Values Has Been Deleted...");
-  //   res.status(200).send(`User with id:${id} is deleted...`);
-  // });
 };
-module.exports = { addEntries, updateEntry, deleteEntry };
+module.exports = {
+  addEntries,
+  updateEntry,
+  deleteEntry,
+  addvaluesToStudentsAndIdentityCardTable,
+};
